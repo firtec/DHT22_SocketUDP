@@ -42,10 +42,10 @@ void MainWindow::processPendingDatagrams()
      QByteArray datagram;
      QString dato1;
      QString dato2;
-     datagram.resize(socket->pendingDatagramSize());
-     socket->readDatagram(datagram.data(),datagram.size(),&sender,&port);
+     datagram.resize(socket->pendingDatagramSize());    
 
     if ( datagram.size() > 0 ){
+        socket->readDatagram(datagram.data(),datagram.size(),&sender,&port);
         ui->IP->setText(sender.toString());             
         QString recibido_socket(datagram);              
         QStringList datos = recibido_socket.split(","); 
